@@ -4,9 +4,7 @@ if [ -e ~/.ssh/id_rsa.pub ];
                 echo "Public key exists already..."
         else
                 echo "Generating keys..."
-		echo "">_ssh_genkey_temp
-		ssh-keygen<_ssh_genkey_temp
-		rm _ssh_genkey_temp
+		echo "" | ssh-keygen
 fi
 
 printf "Public key is: "
