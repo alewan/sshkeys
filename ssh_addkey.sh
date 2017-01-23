@@ -10,16 +10,16 @@ if [ -d ~/.ssh ];
 		mkdir ~/.ssh
 fi
 #Check for authorizedkeys file (create if does not exist)
-if [ -e ~/.ssh/authorizedkeys ];
+if [ -e ~/.ssh/authorized_keys ];
         then
                 echo "Authorized keys file exists already"
         else
                 echo "Authorized keys file does not exist. Creating one for you."
-                touch ~/.ssh/authorizedkeys
+                touch ~/.ssh/authorized_keys
 fi
 
 printf "Provide public key: "
 read pubkey
 echo "Adding provided key..."
-echo $pubkey >> ~/.ssh/authorizedkeys
+echo $pubkey >> ~/.ssh/authorized_keys
 echo "Done"
