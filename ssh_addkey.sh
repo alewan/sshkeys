@@ -1,7 +1,8 @@
 #!/bin/bash
-echo "This program will let you add a public key to authorize for ssh logins"
 
-#Check for .ssh dir (create if does not exist)
+echo "This script will let you add a public key to authorize for remote login"
+
+#Checking for .ssh dir (creating it if it does not exist)
 if [ -d ~/.ssh ];
 	then
 		echo ".ssh directory exists already"
@@ -9,7 +10,8 @@ if [ -d ~/.ssh ];
 		echo ".ssh directory does not exist. Creating one for you."
 		mkdir ~/.ssh
 fi
-#Check for authorizedkeys file (create if does not exist)
+
+#Checking for authorized_keys file (creating it if it does not exist)
 if [ -e ~/.ssh/authorized_keys ];
         then
                 echo "Authorized keys file exists already"
@@ -18,6 +20,7 @@ if [ -e ~/.ssh/authorized_keys ];
                 touch ~/.ssh/authorized_keys
 fi
 
+#Asking user for public key and adding it to the list of authorized keys
 printf "Provide public key: "
 read pubkey
 echo "Adding provided key..."
